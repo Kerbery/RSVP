@@ -10,6 +10,6 @@ namespace RSVP.Models
 
         [StringLength(20, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 2)]
         public string Surname { get; set; } = string.Empty;
-        public Attendence Atendence { get; set; } = Attendence.NotSure;
+        public Attendence Attendence { get; set; } = Attendence.NotSure;
     }
 }
