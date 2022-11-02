@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RSVP.Models;
+using RSVP.Services;
 using System.Diagnostics;
 
 namespace RSVP.Controllers
@@ -7,14 +8,26 @@ namespace RSVP.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IAttendenceService _service;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IAttendenceService service)
         {
             _logger = logger;
+            _service = service;
         }
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(UserViewModel userViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.AddUser(userViewModel);
+            }
             return View();
         }
 

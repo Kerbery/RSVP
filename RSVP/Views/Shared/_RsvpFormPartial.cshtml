@@ -1,0 +1,24 @@
+﻿<form action="#" method="post">
+    <b>Name:</b><b class="text-danger">*</b><br />
+    <div class="d-inline-block">
+        <input type="text" id="name" name="Name" required><br />
+        <label for="Name">Name</label>
+    </div>
+    <div class="d-inline-block">
+        <input type="text" id="surname" name="Surname" required><br />
+        <label for="Surname">Surname</label>
+    </div>
+    <br />
+    <div class="d-block bg-warning">
+        <b>Are you able to attend?</b><b class="text-danger">*</b><br />
+        <input type="radio" id="will-attend" name="Attendence" value="Yes" />
+        <label for="will-attend">Yes</label>
+        <br />
+        <input type="radio" id="wont-attend" name="Attendence" value="No" />
+        <label for="wont-attend">No</label>
+        <br />
+        <input type="radio" id="undecided-attendence" name="Attendence" value="NotSure" checked="checked" />
+        <label for="undecided-attendence">Not Sure</label>
+    </div>
+    <input type="submit" />
+</form>
