@@ -1,4 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RSVP.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<AttendenceContext>(options =>
+    {
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    }
+);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
