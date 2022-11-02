@@ -1,0 +1,25 @@
+﻿@using RSVP.Entities
+@{
+    if (ViewBag.User is not null)
+    {
+        string fullName = $"{ViewBag.User.Name} {ViewBag.User.Surname}";
+        switch (ViewBag.User.Attendence)
+        {
+            case Attendence.Yes:
+                <text>
+                    <p>Thank you <b>@fullName</b> for letting us know that you will attend the event!</p>
+                </text>
+                break;
+            case Attendence.No:
+                <text>
+                    <p>Thank you <b>@fullName</b> for letting us know that you won't attend the event!</p>
+                </text>
+                break;
+            case Attendence.NotSure:
+                <text>
+                    <p>Thank you <b>@fullName</b> for letting us know that you may attend the event!</p>
+                </text>
+                break;
+        }
+    }
+}
