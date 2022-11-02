@@ -25,5 +25,21 @@ namespace RSVP.Services
             _context.Users.Add(user);
             _context.SaveChanges();
         }
+
+        public AttendenceStats GetAttendenceStats()
+        {
+            var dbStats = _context.Users
+                .GroupBy(u => u.Attendence)
+                .Select(g => new { Attendence = g.Key, Count = g.Count() })
+                .ToDictionary(g => g.Attendence, g => g.Count);
+
+            var stats = new AttendenceStats()
+            {
+                WillAttend = dbStats[Attendence.Yes],
+                WontAttend = dbStats[Attendence.No],
+                MayAttend = dbStats[Attendence.NotSure]
+            };
+            return stats;
+        }
     }
 }
