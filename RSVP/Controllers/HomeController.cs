@@ -27,8 +27,19 @@ namespace RSVP.Controllers
             if (ModelState.IsValid)
             {
                 _service.AddUser(userViewModel);
+                return RedirectToAction(nameof(Stats), userViewModel);
             }
             return View();
+        }
+
+        public IActionResult Stats(UserViewModel userViewModel)
+        {            
+            if (ModelState.IsValid)
+            {
+                ViewBag.User = userViewModel;
+            }
+            var stats = _service.GetAttendenceStats();
+            return View(stats);
         }
 
         public IActionResult Privacy()
