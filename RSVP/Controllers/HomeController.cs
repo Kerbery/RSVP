@@ -29,7 +29,7 @@ namespace RSVP.Controllers
                 _service.AddUser(userViewModel);
                 return RedirectToAction(nameof(Stats), userViewModel);
             }
-            return View();
+            return View(userViewModel);
         }
 
         public IActionResult Stats(UserViewModel userViewModel)

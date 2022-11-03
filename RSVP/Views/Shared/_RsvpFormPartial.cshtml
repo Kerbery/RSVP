@@ -1,12 +1,20 @@
-﻿<form action="#" method="post">
+﻿@model UserViewModel
+
+<form class="needs-validation" asp-controller="Home" asp-action="Index" method="post" novalidate="novalidate">
     <b>Name:</b><b class="text-danger">*</b><br />
     <div class="d-inline-block">
-        <input type="text" id="name" name="Name" required><br />
-        <label for="Name">Name</label>
+        <div class="input-group has-validation">
+            <input asp-for="Name" class="form-control" type="text" id="name" required="required">
+            <span asp-validation-for="Name" class="invalid-tooltip"></span>
+    </div>
+        <label asp-for="Name" class="form-label">Name</label>
     </div>
     <div class="d-inline-block">
-        <input type="text" id="surname" name="Surname" required><br />
-        <label for="Surname">Surname</label>
+        <div class="input-group has-validation">
+            <input asp-for="Surname" class="form-control" type="text" id="surname" required="required">
+            <span asp-validation-for="Surname" class="invalid-tooltip"></span>
+    </div>
+        <label asp-for="Surname" class="form-label">Surname</label>
     </div>
     <br />
     <div class="d-block bg-warning">
