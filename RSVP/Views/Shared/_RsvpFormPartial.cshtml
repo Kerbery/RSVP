@@ -6,27 +6,32 @@
         <div class="input-group has-validation">
             <input asp-for="Name" class="form-control" type="text" id="name" required="required">
             <span asp-validation-for="Name" class="invalid-tooltip"></span>
-    </div>
+        </div>
         <label asp-for="Name" class="form-label">Name</label>
     </div>
     <div class="d-inline-block">
         <div class="input-group has-validation">
             <input asp-for="Surname" class="form-control" type="text" id="surname" required="required">
             <span asp-validation-for="Surname" class="invalid-tooltip"></span>
-    </div>
+        </div>
         <label asp-for="Surname" class="form-label">Surname</label>
     </div>
     <br />
-    <div class="d-block bg-warning">
-        <b>Are you able to attend?</b><b class="text-danger">*</b><br />
-        <input type="radio" id="will-attend" name="Attendence" value="Yes" />
-        <label for="will-attend">Yes</label>
-        <br />
-        <input type="radio" id="wont-attend" name="Attendence" value="No" />
-        <label for="wont-attend">No</label>
-        <br />
-        <input type="radio" id="undecided-attendence" name="Attendence" value="NotSure" checked="checked" />
-        <label for="undecided-attendence">Not Sure</label>
+    <div class="d-block bg-warning has-validation">
+        <b>Are you able to attend?</b><b class="text-danger">*</b>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="will-attend" asp-for="Attendence" value="Yes" />
+            <label class="form-check-label" for="will-attend">Yes</label>
+            <span class="radio-tooltip invalid-tooltip" asp-validation-for="Attendence" ></span>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="wont-attend" asp-for="Attendence" value="No" />
+            <label class="form-check-label" for="wont-attend">No</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="undecided-attendence" asp-for="Attendence" value="NotSure" checked="checked" />
+            <label class="form-check-label" for="undecided-attendence">Not Sure</label>
+        </div> 
     </div>
     <input type="submit" />
 </form>
